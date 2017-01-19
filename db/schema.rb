@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170119142918) do
+ActiveRecord::Schema.define(version: 20170119160624) do
 
   create_table "station_statuses", force: :cascade do |t|
     t.integer  "station_id"
@@ -35,6 +35,23 @@ ActiveRecord::Schema.define(version: 20170119142918) do
     t.boolean  "bonus"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+  end
+
+  create_table "weathers", force: :cascade do |t|
+    t.string   "provider_name"
+    t.integer  "provider_city_id"
+    t.decimal  "latitude"
+    t.decimal  "longitude"
+    t.string   "main"
+    t.string   "secondary"
+    t.decimal  "wind"
+    t.decimal  "clouds"
+    t.decimal  "temperature"
+    t.decimal  "humidity"
+    t.datetime "sunset"
+    t.datetime "sunrise"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
 end
