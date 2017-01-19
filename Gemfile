@@ -17,6 +17,7 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.5'
 
 gem 'figaro'
+gem 'annotate'
 
 group :development, :test do
   gem 'byebug'

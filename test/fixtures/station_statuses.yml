@@ -1,0 +1,26 @@
+# == Schema Information
+#
+# Table name: station_statuses
+#
+#  id               :integer          not null, primary key
+#  station_id       :integer
+#  status           :string
+#  stands           :integer
+#  available_bikes  :integer
+#  available_stands :integer
+#  last_update_at   :datetime
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  stands: 1
+  available_bikes: 1
+  available_stands: 1
+
+two:
+  stands: 1
+  available_bikes: 1
+  available_stands: 1
