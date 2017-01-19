@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170119160624) do
+ActiveRecord::Schema.define(version: 20170119170738) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20170119160624) do
     t.boolean  "bonus"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.index ["contract_name", "number"], name: "index_stations_on_contract_name_and_number", using: :btree
   end
 
   create_table "weathers", force: :cascade do |t|
