@@ -1,24 +1,13 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Fetching data such as velib usage and weather to be able to predict velib availability.
 
-Things you may want to cover:
 
-* Ruby version
+## Development
 
-* System dependencies
+You may use Vagrant or the app directly
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Model annotations
+```
+bundle exec annotate -ik
+```

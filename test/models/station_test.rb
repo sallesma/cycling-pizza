@@ -14,6 +14,10 @@
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #
+# Indexes
+#
+#  index_stations_on_contract_name_and_number  (contract_name,number)
+#
 
 require 'test_helper'
 

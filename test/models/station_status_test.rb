@@ -12,6 +12,14 @@
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
 #
+# Indexes
+#
+#  index_station_statuses_on_station_id  (station_id)
+#
+# Foreign Keys
+#
+#  fk_rails_b7bb8cb611  (station_id => stations.id)
+#
 
 require 'test_helper'
 
