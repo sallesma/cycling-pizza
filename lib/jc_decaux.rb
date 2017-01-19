@@ -1,11 +1,16 @@
-class Velib
+module JCDecaux
 
-  def fetch_stations
+  def self.fetch_velib_stations
+    fetch_stations('Paris')
+  end
+
+  def self.fetch_stations(contract)
     uri = URI.parse('https://api.jcdecaux.com/vls/v1/stations')
     params = {
-      api_key: ENV['JCDECAUX_API_KEY'],
+      apiKey: ENV['JCDECAUX_API_KEY'],
       contract: 'Paris'
     }
+    
     uri.query = URI.encode_www_form(params)
 
     JSON.parse(Net::HTTP.get(uri))
