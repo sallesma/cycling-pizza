@@ -10,7 +10,7 @@ Vagrant.configure(2) do |config|
 
   config.vm.network "forwarded_port", guest: 3000, host: 3000
 
-  config.vm.synced_folder ".", "/home/vagrant/velib", owner: "vagrant", group: "vagrant"
+  config.vm.synced_folder ".", "/home/vagrant/cycling-pizza", owner: "vagrant", group: "vagrant"
 
   config.vm.provision :shell, path: "vagrant_bootstrap.sh", privileged: false
 end
