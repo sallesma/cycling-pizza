@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20170119160624) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "station_statuses", force: :cascade do |t|
     t.integer  "station_id"
     t.string   "status"
@@ -21,7 +24,7 @@ ActiveRecord::Schema.define(version: 20170119160624) do
     t.datetime "last_update_at"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
-    t.index ["station_id"], name: "index_station_statuses_on_station_id"
+    t.index ["station_id"], name: "index_station_statuses_on_station_id", using: :btree
   end
 
   create_table "stations", force: :cascade do |t|
@@ -54,4 +57,5 @@ ActiveRecord::Schema.define(version: 20170119160624) do
     t.datetime "updated_at",       null: false
   end
 
+  add_foreign_key "station_statuses", "stations"
 end
