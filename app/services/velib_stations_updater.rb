@@ -1,7 +1,7 @@
 class VelibStationsUpdater
 
   def perform
-    stations_json = JCDecaux.fetch_velib_stations
+    stations_json = JCDecauxApi.new.fetch_velib_stations
 
     stations_json.each do |station_json|
       station = Station.find_or_create_by(contract_name: station_json['contract_name'], number: station_json['number'])

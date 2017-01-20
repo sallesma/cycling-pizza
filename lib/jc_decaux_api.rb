@@ -1,10 +1,12 @@
-module JCDecaux
+class JCDecauxApi
 
-  def self.fetch_velib_stations
+  def fetch_velib_stations
     fetch_stations('Paris')
   end
 
-  def self.fetch_stations(contract)
+  private
+
+  def fetch_stations(contract)
     uri = URI.parse('https://api.jcdecaux.com/vls/v1/stations')
     params = {
       apiKey: ENV['JCDECAUX_API_KEY'],

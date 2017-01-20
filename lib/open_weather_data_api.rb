@@ -1,10 +1,12 @@
-module OpenWeatherData
+class OpenWeatherDataApi
 
-  def self.fetch_current_paris_weather
+  def fetch_current_paris_weather
     fetch_current_weather('Paris, France')
   end
 
-  def self.fetch_current_weather(city)
+  private
+
+  def fetch_current_weather(city)
     uri = URI.parse('http://api.openweathermap.org/data/2.5/weather')
     params = {
       APPID: ENV['OPEN_WEATHER_DATA_API_KEY'],
