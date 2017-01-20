@@ -1,0 +1,20 @@
+language: ruby
+rvm:
+  - 2.3.1
+
+cache: bundler
+
+services:
+  - postgresql
+
+before_script:
+  - psql -c 'create database cycling_pizza_test;' -U postgres
+
+script: bundle exec rake test
+
+deploy:
+  provider: heroku
+  app: cycling-pizza
+  api_key:
+    secure: h2r7M7bR9Gx0DEgyvE9FgNtdB/z+mkhqVpX92kCqQyTvP1t7mtS3j4JaNiUUn6hq/41GYaRVAfg5VvrXUSdsBT8hiGpUmLHiGWzSAdhnkeqqaVRlqoue2sMpZkN3wgw4ybmAxcohIEM06mA126RIHBZJiJJoitn76x67FDrlOQ0wWRoMbpvodiYyO0GRxW3yaHDdUdxupofann/e8fPbLu2aYDCIGNnUQEBv2104izRYF81h5qRP1TeTMLYwXUxMMO8b/R+c8wiI5adCocT5NBzOG5uPD7AOTeShfFGXi0TA2iwapzIbPaBDStbgHOfFG2ewPrFugDqZpyygtx/LYYt3HPw139V3kOHW/3WnQvPuTXD2DCyHENVZfwXvtElse0tQGKpJdMMoHkSLHLSJ+jVL1LiOfi7MOQ1ILZxIg+HrtVs3qwPX+xzSYsCVBLIr1IAmtA8SszqhvQaGTcasoVfLR+DewJKjxMPWXrZytRQ9eRZ7E4SzSUsSCZXE0ohi0lEJl6DRkdTRGeBMc9Cw3Go9mIvghqWf9bFoOmt3ZubUtQq3Ilb+CxJBSB6B7hCyNW6Uy+Xt7BFg2loZUdvXCOEYW+fqnge7LKPUa141UQrxGC3klsyonwa1M0fUWOpgNFGnw55C2rDTYodLnhgJAX2fgghYvoP7nKux1NosfYY=
+  run: rake db:migrate
