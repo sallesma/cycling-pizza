@@ -12,9 +12,9 @@ class VelibStationsUpdater
 
   def fetch_data(stations_ids)
     if stations_ids.empty?
-      api.fetch_velib_stations
+      api.velib_stations
     else
-      stations_ids.map {|id| api.fetch_velib_station(id)}
+      stations_ids.map {|id| api.velib_station(id)}
     end
   end
 
@@ -39,6 +39,6 @@ class VelibStationsUpdater
   end
 
   def api
-    @jc_decaux_api ||= JCDecauxApi.new
+    @jc_decaux_api ||= JCDecaux.new
   end
 end
