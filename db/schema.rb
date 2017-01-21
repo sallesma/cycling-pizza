@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170119170738) do
+ActiveRecord::Schema.define(version: 20170121145131) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "predictions", force: :cascade do |t|
+    t.integer  "station_id"
+    t.decimal  "available_bikes"
+    t.decimal  "available_stands"
+    t.string   "predictor"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["station_id"], name: "index_predictions_on_station_id", using: :btree
+  end
 
   create_table "station_statuses", force: :cascade do |t|
     t.integer  "station_id"
@@ -58,5 +68,6 @@ ActiveRecord::Schema.define(version: 20170119170738) do
     t.datetime "updated_at",       null: false
   end
 
+  add_foreign_key "predictions", "stations"
   add_foreign_key "station_statuses", "stations"
 end

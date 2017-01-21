@@ -21,4 +21,5 @@
 
 class Station < ApplicationRecord
   has_many :station_statuses
+  has_many :predictions
 end
