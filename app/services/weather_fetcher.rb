@@ -1,7 +1,7 @@
 class WeatherFetcher
 
   def perform
-    weather_json = OpenWeatherDataApi.new.fetch_current_paris_weather
+    weather_json = OpenWeatherData.new.current_paris_weather
 
     weather = Weather.create(
       provider_name: 'openweatherdata',
