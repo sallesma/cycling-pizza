@@ -28,5 +28,15 @@ FactoryGirl.define do
     longitude 2.9
     banking true
     bonus false
+
+    factory :station_with_statuses do
+      transient do
+        statuses_count 2
+      end
+
+      after(:create) do |station, evaluator|
+        create_list(:station_status, evaluator.statuses_count, station: station)
+      end
+    end
   end
 end

@@ -2,6 +2,7 @@ require 'rails_helper'
 
 describe Predictor::Dummy do
   let(:predictor) { Predictor::Dummy.new }
+
   describe 'predict' do
     it 'always returns a Prediction with empty values' do
       station = FactoryGirl.create(:station)
