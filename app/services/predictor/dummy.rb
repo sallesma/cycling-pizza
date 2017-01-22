@@ -1,6 +1,6 @@
 class Predictor::Dummy < Predictor::Base
 
-  def predict(station, timestamp)
+  def predict(station, _timestamp)
     station.predictions.build(
       station: station,
       available_bikes: 0,

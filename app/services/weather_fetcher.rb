@@ -3,7 +3,7 @@ class WeatherFetcher
   def perform
     weather_json = OpenWeatherData.new.current_paris_weather
 
-    weather = Weather.create(
+    Weather.create(
       provider_name: 'openweatherdata',
       provider_city_id: weather_json['id'],
       latitude: weather_json['coord']['lat'],
