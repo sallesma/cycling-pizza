@@ -19,6 +19,11 @@ sudo apt-get install -y libqtwebkit-dev xvfb
 # PostgreSQL
 sudo apt-get install -y libpq-dev postgresql
 
+# aws-cli (http://docs.aws.amazon.com/cli/latest/userguide/installing.html)
+sudo apt-get install python-dev
+curl -O https://bootstrap.pypa.io/get-pip.py
+sudo python2.7 get-pip.py
+
 # setup rbenv and ruby-build
 git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
 echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
@@ -33,9 +38,6 @@ rbenv install 2.3.1
 rbenv global 2.3.1
 gem install bundler
 rbenv rehash
-
-# Install Heroku
-wget -O- https://toolbelt.heroku.com/install-ubuntu.sh | sh 
 
 # cleanup
 sudo apt-get clean
