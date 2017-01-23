@@ -24,7 +24,7 @@ class VelibStationsUpdater
         name: station_json['name'],
         address: station_json['address'],
         latitude: station_json['position']['lat'],
-        longitude: station_json['position']['lon'],
+        longitude: station_json['position']['lng'],
         banking: station_json['banking'],
         bonus: station_json['bonus']
       )
