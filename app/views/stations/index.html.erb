@@ -19,7 +19,7 @@
       <td><%= station.address %></td>
       <td><%= station.latitude %></td>
       <td><%= station.longitude %></td>
-      <td><%= station.station_statuses.count %></td>
+      <td><%= @station_statuses_counts[station.id] %></td>
     </tr>
   <% end%>
 </table>
