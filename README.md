@@ -16,3 +16,16 @@ Model annotations
 ```
 bundle exec annotate -ik
 ```
+
+## Deployment
+
+Populate the holidays table
+```
+cd /var/app/current && bundle exec thor holiday:populate
+```
+
+Set up cronjobs to fetch stations and weather periodically
+```
+*/10 * * * * source /opt/elasticbeanstalk/support/envvars && cd /var/app/current && bundle exec thor stations:fetch
+*/10 * * * * source /opt/elasticbeanstalk/support/envvars && cd /var/app/current && bundle exec thor ẁeather:fetch
+```
