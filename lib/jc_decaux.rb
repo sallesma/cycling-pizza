@@ -11,11 +11,11 @@ class JCDecaux < ExternalApi
   private
 
   def stations(contract)
-    fetch('stations', { contract: contract})
+    fetch('stations', { contract: contract })
   end
 
   def station(contract, station_id)
-    fetch("stations/#{station_id}", { contract: contract})
+    fetch("stations/#{station_id}", { contract: contract })
   end
 
   def fetch(endpoint, params = {})

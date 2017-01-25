@@ -8,6 +8,6 @@ class WebCal < ExternalApi
       end_year: 2022,
       tz:'Europe%2FParis'
     }
-    result = get("http://www.webcal.fi/cal.php", params)
+    get("http://www.webcal.fi/cal.php", params)
   end
 end
