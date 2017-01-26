@@ -7,7 +7,7 @@ class Holiday < Thor
   def populate
     puts 'Starting to populate...'
 
-    HolidayPopulator.new.perform
+    HolidaysPopulator.new.perform
 
     puts 'Finished to populate.'
   end
