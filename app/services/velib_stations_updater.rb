@@ -26,15 +26,14 @@ class VelibStationsUpdater
       latitude: station_json['position']['lat'],
       longitude: station_json['position']['lng'],
       banking: station_json['banking'],
-      bonus: station_json['bonus']
-    )
-
-    station.station_statuses.create(
-      status: station_json['status'],
-      stands: station_json['bike_stands'],
-      available_bikes: station_json['available_bikes'],
-      available_stands: station_json['available_bike_stands'],
-      last_update_at: Time.at(station_json['last_update'] / 1000)
+      bonus: station_json['bonus'],
+      station_statuses_attributes: [{
+        status: station_json['status'],
+        stands: station_json['bike_stands'],
+        available_bikes: station_json['available_bikes'],
+        available_stands: station_json['available_bike_stands'],
+        last_update_at: Time.at(station_json['last_update'] / 1000)
+      }]
     )
   end
 

@@ -23,6 +23,7 @@
 
 FactoryGirl.define do
   factory :station_status do
+    status 'OPEN'
     stands 10
     available_bikes 10
     available_stands 0

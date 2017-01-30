@@ -22,4 +22,6 @@
 class Station < ApplicationRecord
   has_many :station_statuses
   has_many :predictions
+
+  accepts_nested_attributes_for :station_statuses
 end
