@@ -19,23 +19,23 @@ class VelibStationsUpdater
   end
 
   def upsert_station(station_json)
-      station = Station.find_or_create_by(contract_name: station_json['contract_name'], number: station_json['number'])
-      station.update(
-        name: station_json['name'],
-        address: station_json['address'],
-        latitude: station_json['position']['lat'],
-        longitude: station_json['position']['lng'],
-        banking: station_json['banking'],
-        bonus: station_json['bonus']
-      )
+    station = Station.find_or_create_by(contract_name: station_json['contract_name'], number: station_json['number'])
+    station.update(
+      name: station_json['name'],
+      address: station_json['address'],
+      latitude: station_json['position']['lat'],
+      longitude: station_json['position']['lng'],
+      banking: station_json['banking'],
+      bonus: station_json['bonus']
+    )
 
-      station.station_statuses.create(
-        status: station_json['status'],
-        stands: station_json['bike_stands'],
-        available_bikes: station_json['available_bikes'],
-        available_stands: station_json['available_bike_stands'],
-        last_update_at: Time.at(station_json['last_update'] / 1000)
-      )
+    station.station_statuses.create(
+      status: station_json['status'],
+      stands: station_json['bike_stands'],
+      available_bikes: station_json['available_bikes'],
+      available_stands: station_json['available_bike_stands'],
+      last_update_at: Time.at(station_json['last_update'] / 1000)
+    )
   end
 
   def api
