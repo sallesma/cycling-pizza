@@ -1,7 +1,13 @@
-class Predictor::Average < Predictor::Base
+class Predictor::HouredAverage < Predictor::Base
 
-  def predict(station, _timestamp)
+  MINUTE_WINDOW = 15
+
+  def predict(station, timestamp)
+    timestamp = timestamp.utc
+
     statuses = station.station_statuses
+      .where("EXTRACT(DOW FROM last_update_at) = #{timestamp.wday}")
+      .where("ABS(EXTRACT(HOUR FROM (last_update_at::time - '#{timestamp}'::time))*60+EXTRACT(MINUTE FROM (last_update_at::time - '#{timestamp}'::time))) <= #{MINUTE_WINDOW}")
 
     return nil unless statuses.any?
 
