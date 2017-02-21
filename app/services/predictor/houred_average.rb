@@ -16,6 +16,7 @@ class Predictor::HouredAverage < Predictor::Base
 
     station.predictions.build(
       station: station,
+      valid_at: timestamp,
       available_bikes: available_bikes,
       available_stands: available_stands
     )

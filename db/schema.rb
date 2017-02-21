@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170122224418) do
+ActiveRecord::Schema.define(version: 20170221102531) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20170122224418) do
     t.string   "predictor"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.datetime "valid_at",         null: false
     t.index ["station_id"], name: "index_predictions_on_station_id", using: :btree
   end
 

@@ -16,10 +16,12 @@ describe Predictor::Average do
           available_stands: 2
         )
 
-        prediction = predictor.predict(station, Time.now)
+        timestamp = Time.now
+        prediction = predictor.predict(station, timestamp)
 
         expect(prediction).to be_a_new(Prediction)
         expect(prediction.station).to eq(station)
+        expect(prediction.valid_at).to eq(timestamp)
         expect(prediction.available_bikes).to eq(7.5)
         expect(prediction.available_stands).to eq(6)
       end

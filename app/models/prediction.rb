@@ -9,6 +9,7 @@
 #  predictor        :string
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
+#  valid_at         :datetime         not null
 #
 # Indexes
 #

@@ -1,6 +1,6 @@
 class Predictor::Average < Predictor::Base
 
-  def predict(station, _timestamp)
+  def predict(station, timestamp)
     statuses = station.station_statuses
 
     return nil unless statuses.any?
@@ -10,6 +10,7 @@ class Predictor::Average < Predictor::Base
 
     station.predictions.build(
       station: station,
+      valid_at: timestamp,
       available_bikes: available_bikes,
       available_stands: available_stands
     )

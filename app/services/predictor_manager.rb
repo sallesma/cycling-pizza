@@ -3,7 +3,7 @@ class PredictorsManager
   def make_prediction(station, timestamp, predictor = nil)
     predictor ||= choose_predictor
 
-    prediction = predictor.new.predict(station, timestamp)
+    prediction = predictor.predict(station, timestamp)
     prediction.save
     prediction
   end
@@ -11,6 +11,6 @@ class PredictorsManager
   private
 
   def choose_predictor
-    Predictor::Dummy
+    Predictor::HouredAverage.new
   end
 end

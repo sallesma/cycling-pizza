@@ -33,10 +33,12 @@ describe Predictor::HouredAverage do
           last_update_at: Time.new(2017, 1, 9, 12, 50)
         )
 
-        prediction = predictor.predict(station, Time.new(2017, 1, 17, 12, 50))
+        timestamp = Time.new(2017, 1, 17, 12, 50)
+        prediction = predictor.predict(station, timestamp)
 
         expect(prediction).to be_a_new(Prediction)
         expect(prediction.station).to eq(station)
+        expect(prediction.valid_at).to eq(timestamp)
         expect(prediction.available_bikes).to eq(7.5)
         expect(prediction.available_stands).to eq(6)
       end
@@ -56,8 +58,6 @@ describe Predictor::HouredAverage do
 
         prediction = predictor.predict(station, Time.new(2017, 1, 17, 23, 55))
 
-        expect(prediction).to be_a_new(Prediction)
-        expect(prediction.station).to eq(station)
         expect(prediction.available_bikes).to eq(5)
         expect(prediction.available_stands).to eq(10)
       end
