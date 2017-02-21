@@ -1,4 +1,4 @@
-class StationsController < ApplicationController
+class Admin::StationsController < ApplicationController
 
   def index
     contract_name = params[:contract_name] || 'Paris'

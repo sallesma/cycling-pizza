@@ -1,0 +1,16 @@
+<h1>Weather</h1>
+
+<table>
+  <tr>
+    <td>Count</td>
+    <td><%= @weathers.count %></td>
+  </tr>
+  <tr>
+    <td>Distribution</td>
+    <td><%= @weathers.group(:main).count %></td>
+  </tr>
+  <tr>
+    <td>Temperature</td>
+    <td><%= @weathers.average(:temperature) %></td>
+  </tr>
+</table>
