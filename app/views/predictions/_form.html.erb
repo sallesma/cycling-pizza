@@ -1,0 +1,28 @@
+<%= form_for(prediction) do |f| %>
+  <% if prediction.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(prediction.errors.count, "error") %> prohibited this prediction from being saved:</h2>
+
+      <ul>
+      <% prediction.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.text_field :valid_at, class: 'datetimepicker' %>
+    <%= f.select :station_id, Station.order(:name).collect {|s| [ s.name, s.id ] }, { include_blank: 'Select a station' } %>
+    <br />
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<% content_for :javascript do %>
+  $('.datetimepicker').datetimepicker({
+    format:'Y-m-d H:i',
+    minDate:'<%= Time.now %>',
+    step: 5
+  });
+<% end %>

@@ -22,6 +22,10 @@ gem 'jbuilder', '~> 2.5'
 gem 'figaro'
 gem 'annotate'
 
+source 'https://rails-assets.org' do
+  gem 'rails-assets-datetimepicker'
+end
+
 group :development, :test do
   gem 'byebug'
   gem 'rspec-rails', '~> 3.5'

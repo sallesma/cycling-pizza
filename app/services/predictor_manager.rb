@@ -1,4 +1,4 @@
-class PredictorsManager
+class PredictorManager
 
   def make_prediction(station, timestamp, predictor = nil)
     predictor ||= choose_predictor
