@@ -1,0 +1,56 @@
+<h1>Station <%= @station.name %></h1>
+
+<h2>General information</h2>
+
+<table>
+  <tr>
+    <td>Number</td>
+    <td><%= @station.number %></td>
+  </tr>
+  <tr>
+    <td>Name</td>
+    <td><%= @station.name %></td>
+  </tr>
+  <tr>
+    <td>City</td>
+    <td><%= @station.contract_name %></td>
+  </tr>
+  <tr>
+    <td>Address</td>
+    <td><%= @station.address %></td>
+  </tr>
+  <tr>
+    <td>Banking</td>
+    <td><%= @station.banking %></td>
+  </tr>
+  <tr>
+    <td>Bonus</td>
+    <td><%= @station.bonus %></td>
+  </tr>
+</table>
+
+<%= link_to 'Predict', new_prediction_path(station_id: @station) %>
+<%= link_to 'Back', admin_stations_path %>
+
+<h2>Last statuses</h2>
+
+<table>
+  <tr>
+    <th>Status</th>
+    <th>Stands</th>
+    <th>Available bikes</th>
+    <th>Available stands</th>
+    <th>Update at</th>
+  </tr>
+
+  <% @station.station_statuses.last_24h.fresh.each do |status| %>
+    <tr>
+      <td><%= status.status %></td>
+      <td><%= status.stands %></td>
+      <td><%= status.available_bikes %></td>
+      <td><%= status.available_stands %></td>
+      <td><%= status.last_update_at %></td>
+    </tr>
+  <% end%>
+</table>
+

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :predictions, only: [:new, :create, :show]
 
   namespace :admin do
-    resources :stations, only: :index
+    resources :stations, only: [:index, :show]
     resources :weathers, only: :index
   end
 end

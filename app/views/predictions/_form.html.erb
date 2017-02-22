@@ -13,7 +13,7 @@
 
   <div class="actions">
     <%= f.text_field :valid_at, class: 'datetimepicker' %>
-    <%= f.select :station_id, Station.order(:name).collect {|s| [ s.name, s.id ] }, { include_blank: 'Select a station' } %>
+    <%= f.select :station_id, options_for_select(Station.order(:name).collect {|s| [ s.name, s.id ] }, station_id), { include_blank: 'Select a station' } %>
     <br />
     <%= f.submit %>
   </div>

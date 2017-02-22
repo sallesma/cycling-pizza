@@ -23,4 +23,7 @@
 
 class StationStatus < ApplicationRecord
   belongs_to :station
+
+  scope :last_24h, -> { where(StationStatus.arel_table[:last_update_at].gt(Time.now - 1.day)) }
+  scope :fresh, -> { order(last_update_at: :desc) }
 end

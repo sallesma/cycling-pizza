@@ -20,6 +20,7 @@
       <td><%= station.latitude %></td>
       <td><%= station.longitude %></td>
       <td><%= @station_statuses_counts[station.id] %></td>
+      <td><%= link_to 'Show', admin_station_path(station) %></td>
     </tr>
   <% end%>
 </table>
