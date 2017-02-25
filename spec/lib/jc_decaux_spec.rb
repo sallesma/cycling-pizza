@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'net/http'
 
 describe JCDecaux do
 
