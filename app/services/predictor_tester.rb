@@ -12,7 +12,7 @@ class PredictorTester
   def prediction_deviation(station, predictor)
     last_status = station.station_statuses.order(:last_update_at).last
     prediction = predictor.predict(station, last_status.last_update_at)
-    (prediction.available_bikes - last_status.available_bikes).to_f.abs
+    (prediction.available_bikes - last_status.available_bikes).to_f.abs / last_status.stands
   end
 
   def stations_cohort(iterations)
