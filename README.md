@@ -17,6 +17,12 @@ Model annotations
 bundle exec annotate -ik
 ```
 
+Extract previous day data
+```
+psql -d cycling_pizza_dev -A -F"," -f tools/previous_day_velib.sql -o velib_2017-03-01.csv
+
+```
+
 ## Deployment
 
 Populate the holidays table
