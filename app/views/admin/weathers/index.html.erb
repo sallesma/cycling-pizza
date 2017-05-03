@@ -1,5 +1,7 @@
 <h1>Weather</h1>
 
+<h2>Average values</h2>
+
 <table>
   <tr>
     <td>Count</td>
@@ -14,3 +16,42 @@
     <td><%= @weathers.average(:temperature) %></td>
   </tr>
 </table>
+
+<h2>Most recent values</h2>
+
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Provider</th>
+    <th>Latitude</th>
+    <th>Longitude</th>
+    <th>Main</th>
+    <th>Secondary</th>
+    <th>Wind</th>
+    <th>Clouds</th>
+    <th>Temperature</th>
+    <th>Humidity</th>
+    <th>Sunset</th>
+    <th>Sunrise</th>
+    <th>Update at</th>
+  </tr>
+
+  <% @recent_weathers.each do |weather| %>
+    <tr>
+      <td><%= weather.id %></td>
+      <td><%= weather.provider_name %></td>
+      <td><%= weather.latitude %></td>
+      <td><%= weather.longitude %></td>
+      <td><%= weather.main %></td>
+      <td><%= weather.secondary %></td>
+      <td><%= weather.wind %></td>
+      <td><%= weather.clouds %></td>
+      <td><%= weather.temperature %></td>
+      <td><%= weather.humidity %></td>
+      <td><%= weather.sunset %></td>
+      <td><%= weather.sunrise %></td>
+      <td><%= weather.updated_at %></td>
+    </tr>
+  <% end%>
+</table>
+
