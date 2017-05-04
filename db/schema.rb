@@ -10,10 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170221102531) do
+ActiveRecord::Schema.define(version: 20170503205121) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "forecasts", force: :cascade do |t|
+    t.string   "provider_name"
+    t.integer  "provider_city_id"
+    t.decimal  "latitude"
+    t.decimal  "longitude"
+    t.datetime "effective_at"
+    t.string   "main"
+    t.string   "secondary"
+    t.decimal  "temperature"
+    t.decimal  "humidity"
+    t.decimal  "clouds"
+    t.decimal  "wind"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
 
   create_table "holidays", force: :cascade do |t|
     t.string   "country"
@@ -31,6 +47,8 @@ ActiveRecord::Schema.define(version: 20170221102531) do
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
     t.datetime "valid_at",         null: false
+    t.integer  "forecast_id"
+    t.index ["forecast_id"], name: "index_predictions_on_forecast_id", using: :btree
     t.index ["station_id"], name: "index_predictions_on_station_id", using: :btree
   end
 

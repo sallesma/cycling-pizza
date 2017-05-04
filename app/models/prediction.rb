@@ -10,10 +10,12 @@
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
 #  valid_at         :datetime         not null
+#  forecast_id      :integer
 #
 # Indexes
 #
-#  index_predictions_on_station_id  (station_id)
+#  index_predictions_on_forecast_id  (forecast_id)
+#  index_predictions_on_station_id   (station_id)
 #
 # Foreign Keys
 #
@@ -22,4 +24,5 @@
 
 class Prediction < ApplicationRecord
   belongs_to :station
+  belongs_to :forecast
 end
