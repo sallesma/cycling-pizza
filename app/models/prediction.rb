@@ -24,5 +24,5 @@
 
 class Prediction < ApplicationRecord
   belongs_to :station
-  belongs_to :forecast
+  belongs_to :forecast, optional: true
 end
