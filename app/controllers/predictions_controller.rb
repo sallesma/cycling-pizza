@@ -12,7 +12,12 @@ class PredictionsController < ApplicationController
 
 
     @prediction = PredictorManager.new.make_prediction(station, timestamp)
-    redirect_to @prediction
+
+    if @prediction.persisted?
+      redirect_to @prediction
+    else
+      render :new
+    end
   end
 
   def show
