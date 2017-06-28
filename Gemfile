@@ -25,6 +25,7 @@ gem 'annotate'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-datetimepicker'
+  gem 'rails-assets-leaflet'
 end
 
 group :development, :test do

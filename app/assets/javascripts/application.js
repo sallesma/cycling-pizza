@@ -14,4 +14,5 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require datetimepicker
+//= require leaflet
 //= require_tree .

@@ -13,4 +13,7 @@
  *= require_tree .
  *= require_self
  *= require datetimepicker
+ *= require leaflet
  */
+
+#stations-map { height: 600px; }
