@@ -8,7 +8,10 @@
   </head>
 
   <body>
+
+    <%= render 'layouts/header' %>
     <%= yield %>
+    <%= render 'layouts/footer' %>
 
     <%= javascript_include_tag 'application' %>
     <script type="text/javascript">

@@ -1,14 +1,20 @@
-<h1>Prediction</h1>
+<div class="container">
 
-<dl>
-  <dt>Station</dt>
-  <dd><%= @prediction.station.name %></dd>
-  <dt>Datetime</dt>
-  <dd><%= @prediction.valid_at %></dd>
-  <dt>Estimated available bikes</dt>
-  <dd><%= @prediction.available_bikes %></dd>
-  <dt>Estimated available stands</dt>
-  <dd><%= @prediction.available_stands %></dd>
-<dl>
+  <div class="row">
+    <h1>Prediction</h1>
 
-<%= link_to 'Back', predictions_path %>
+    <dl>
+      <dt>Station</dt>
+      <dd><%= @prediction.station.name %></dd>
+      <dt>Datetime</dt>
+      <dd><%= @prediction.valid_at %></dd>
+      <dt>Estimated available bikes</dt>
+      <dd><%= @prediction.available_bikes %></dd>
+      <dt>Estimated available stands</dt>
+      <dd><%= @prediction.available_stands %></dd>
+    <dl>
+
+    <%= link_to 'Back', predictions_path, class: 'btn btn-default' %>
+
+  </div>
+</div>

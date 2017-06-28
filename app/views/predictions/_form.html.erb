@@ -15,7 +15,7 @@
     <%= f.text_field :valid_at, class: 'datetimepicker' %>
     <%= f.select :station_id, options_for_select(Station.order(:name).collect {|s| [ s.name, s.id ] }, station_id), { include_blank: 'Select a station' } %>
     <br />
-    <%= f.submit %>
+    <%= f.submit class: 'btn btn-default' %>
   </div>
 <% end %>
 
