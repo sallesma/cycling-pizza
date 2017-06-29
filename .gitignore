@@ -30,3 +30,6 @@
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
+
+# Machine learning extraction file
+stations_features.csv
