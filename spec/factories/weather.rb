@@ -19,8 +19,19 @@
 #  updated_at       :datetime         not null
 #
 
-class Weather < ApplicationRecord
-
-  scope :closest, -> (station_status) { order("ABS(EXTRACT( EPOCH FROM created_at - '#{station_status.last_update_at}'))") }
-
+FactoryGirl.define do
+  factory :weather do
+    provider_name 'openweatherdata'
+    provider_city_id 2988507
+    latitude 48.88
+    longitude 2.35
+    main 'Clear'
+    secondary 'clear sky'
+    wind 7.2
+    clouds 0.0
+    temperature 10.33
+    humidity 37
+    sunset Time.now
+    sunrise Time.now
+  end
 end

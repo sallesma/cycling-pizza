@@ -22,6 +22,7 @@ class Extractor::StationFeatures
     [
       bikes_7_days_before,
       bikes_same_day_of_week_and_hour,
+      *weather_data,
       result
     ]
   end
@@ -40,6 +41,10 @@ class Extractor::StationFeatures
     statuses.pluck(:available_bikes).reduce(:+).to_d / statuses.size
   end
 
+  def weather_data
+    Extractor::WeatherFeatures.new(result_status).compute
+  end
+
   def result
     result_status.available_bikes
   end
@@ -48,10 +53,6 @@ class Extractor::StationFeatures
 
   def result_status
     @result_status ||= @station.station_statuses.order(:last_update_at).last
-  end
-
-  def closest_weather
-    @closest_weather ||= Weather.last
   end
 
   class MissingDataError < StandardError ; end
