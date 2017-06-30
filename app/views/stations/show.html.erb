@@ -1,0 +1,77 @@
+<div class="container">
+
+  <div class="row">
+
+    <h1>Station <%= @station.name %></h1>
+
+    <h2>General information</h2>
+
+    <table class="table table-hover">
+      <tr>
+        <td>Number</td>
+        <td><%= @station.number %></td>
+      </tr>
+      <tr>
+        <td>Name</td>
+        <td><%= @station.name %></td>
+      </tr>
+      <tr>
+        <td>City</td>
+        <td><%= @station.contract_name %></td>
+      </tr>
+      <tr>
+        <td>Address</td>
+        <td><%= @station.address %></td>
+      </tr>
+      <tr>
+        <td>Banking</td>
+        <td><%= @station.banking %></td>
+      </tr>
+      <tr>
+        <td>Bonus</td>
+        <td><%= @station.bonus %></td>
+      </tr>
+      <tr>
+        <td>Last status</td>
+        <td><%= @station.station_statuses.fresh.first.status %></td>
+      </tr>
+      <tr>
+        <td>Last status bikes</td>
+        <td><%= @station.station_statuses.fresh.first.available_bikes %></td>
+      </tr>
+      <tr>
+        <td>Last status stands</td>
+        <td><%= @station.station_statuses.fresh.first.stands %></td>
+      </tr>
+      <tr>
+        <td>Last status time</td>
+        <td><%= l(@station.station_statuses.fresh.first.last_update_at, format: :long) %></td>
+      </tr>
+      <tr>
+        <td>Location</td>
+        <td><div id="station-map"></div></td>
+      </tr>
+    </table>
+
+    <%= link_to 'Predict', new_prediction_path(station_id: @station), class: 'btn btn-default' %>
+    <%= link_to 'Back', root_path, class: 'btn btn-default' %>
+
+  </div>
+</div>
+
+<% content_for :javascript do %>
+  var stationsMap = L.map('station-map').setView([48.8596,2.3386], 11);
+  L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=<%= ENV['MAPBOX_ACCESS_TOKEN'] %>', {
+    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+    maxZoom: 18,
+    id: 'mapbox.streets'
+  }).addTo(stationsMap);
+
+  var station = <%= raw @station.as_json(only: [:name, :latitude, :longitude]).to_json %>;
+  var icon = L.icon({ iconUrl: '<%= asset_path("leaflet/dist/images/marker-icon.png") %>' });
+
+  L.marker([station.latitude, station.longitude], { icon: icon })
+    .bindPopup(station.name)
+    .addTo(stationsMap);
+
+<% end %>

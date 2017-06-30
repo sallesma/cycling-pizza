@@ -13,14 +13,14 @@
   <div class="row">
     <h2>Velib stations</h2>
 
-    <div id="stations-map"></div>
+    <div id="home-map"></div>
 
   </div>
 </div>
 
 
 <% content_for :javascript do %>
-  var stationsMap = L.map('stations-map').setView([48.8596,2.3386], 13);
+  var stationsMap = L.map('home-map').setView([48.8596,2.3386], 13);
   L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=<%= ENV['MAPBOX_ACCESS_TOKEN'] %>', {
     attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
     maxZoom: 18,
@@ -31,8 +31,9 @@
   var icon = L.icon({ iconUrl: '<%= asset_path("leaflet/dist/images/marker-icon.png") %>' });
 
   for(var station of stations) {
+    var popupContent = '<a href="/stations/' + station.id + '">' + station.name + '</a>';
     L.marker([station.latitude, station.longitude], { icon: icon })
-      .bindPopup(station.name)
+      .bindPopup(popupContent)
       .addTo(stationsMap);
   };
 

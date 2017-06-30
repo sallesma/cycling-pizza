@@ -16,4 +16,8 @@
  *= require leaflet
  */
 
-#stations-map { height: 600px; }
+#home-map { height: 600px; }
+#station-map {
+  height: 400px;
+  width: 400px;
+}
