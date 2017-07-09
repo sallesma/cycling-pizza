@@ -22,6 +22,7 @@ class Extractor::StationFeatures
     [
       bikes_7_days_before,
       bikes_same_day_of_week_and_hour,
+      holiday?,
       *weather_data,
       result
     ]
@@ -39,6 +40,10 @@ class Extractor::StationFeatures
     raise MissingDataError unless statuses.any?
 
     statuses.pluck(:available_bikes).reduce(:+).to_d / statuses.size
+  end
+
+  def holiday?
+    Holiday.where(date: result_status.last_update_at.to_date).any? ? 1 : 0
   end
 
   def weather_data

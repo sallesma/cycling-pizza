@@ -81,6 +81,17 @@ describe Extractor::StationFeatures do
       end
     end
 
+    describe '#holiday?' do
+      context 'if there is no corresponding holiday' do
+        it { expect(station_features.send(:holiday?)).to eq(0) }
+      end
+
+      context 'if there is a corresponding holiday' do
+        let!(:holiday) { FactoryGirl.create(:holiday, date: station.station_statuses.order(:last_update_at).last.last_update_at.to_date) }
+        it { expect(station_features.send(:holiday?)).to eq(1) }
+      end
+    end
+
     describe '#result' do
       it 'returns the last status available bikes' do
         result = station_features.send(:result)
