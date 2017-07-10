@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root to: 'home#index'
-  resources :predictions, only: [:new, :create, :show]
+  resources :predictions, only: [:new, :create, :show, :index]
   resources :stations, only: [:show]
 
   namespace :admin do

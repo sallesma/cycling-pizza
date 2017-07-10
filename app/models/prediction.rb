@@ -25,4 +25,6 @@
 class Prediction < ApplicationRecord
   belongs_to :station
   belongs_to :forecast, optional: true
+
+  scope :recent, -> { order(created_at: :desc) }
 end

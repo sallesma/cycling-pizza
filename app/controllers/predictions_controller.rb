@@ -20,6 +20,10 @@ class PredictionsController < ApplicationController
     end
   end
 
+  def index
+    @predictions = Prediction.all
+  end
+
   def show
   end
 

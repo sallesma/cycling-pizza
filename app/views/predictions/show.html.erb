@@ -1,18 +1,33 @@
 <div class="container">
 
   <div class="row">
+
     <h1>Prediction</h1>
 
-    <dl>
-      <dt>Station</dt>
-      <dd><%= @prediction.station.name %></dd>
-      <dt>Datetime</dt>
-      <dd><%= @prediction.valid_at %></dd>
-      <dt>Estimated available bikes</dt>
-      <dd><%= @prediction.available_bikes %></dd>
-      <dt>Estimated available stands</dt>
-      <dd><%= @prediction.available_stands %></dd>
-    <dl>
+    <h2>General information</h2>
+
+    <table class="table table-hover">
+      <tr>
+        <td>Station</td>
+        <td><%= @prediction.station.name %></td>
+      </tr>
+      <tr>
+        <td>Creation time</td>
+        <td><%= @prediction.created_at %></td>
+      </tr>
+      <tr>
+        <td>Valid at</td>
+        <td><%= @prediction.valid_at %></td>
+      </tr>
+      <tr>
+        <td>Estimated available bikes</td>
+        <td><%= @prediction.available_bikes %></td>
+      </tr>
+      <tr>
+        <td>Estimated available stands</td>
+        <td><%= @prediction.available_stands %></td>
+      </tr>
+    </table>
 
     <%= link_to 'Back', predictions_path, class: 'btn btn-default' %>
 

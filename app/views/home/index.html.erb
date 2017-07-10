@@ -18,6 +18,16 @@
   </div>
 </div>
 
+<div class="container">
+
+  <div class="row">
+    <h2>Recent predictions</h2>
+
+    <%= render 'predictions/predictions', predictions: @predictions %>
+    <%= link_to 'More predictions', predictions_path, class: 'btn btn-default' %>
+  </div>
+</div>
+
 
 <% content_for :javascript do %>
   var stationsMap = L.map('home-map').setView([48.8596,2.3386], 13);

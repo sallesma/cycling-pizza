@@ -1,0 +1,23 @@
+<%= link_to 'New prediction', new_prediction_path, class: 'btn btn-default' %>
+
+<hr>
+
+<table class="table table-hover">
+  <tr>
+    <th>Station</th>
+    <th>Valid at</th>
+    <th>Available bikes</th>
+    <th>Available stands</th>
+    <th></th>
+  </tr>
+
+  <% predictions.each do |prediction| %>
+    <tr>
+      <td><%= prediction.station.name %></td>
+      <td><%= prediction.valid_at %></td>
+      <td><%= prediction.available_bikes %></td>
+      <td><%= prediction.available_stands %></td>
+      <td><%= link_to 'Show', prediction_path(prediction) %></td>
+    </tr>
+  <% end%>
+</table>
