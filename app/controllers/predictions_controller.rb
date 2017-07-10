@@ -1,6 +1,6 @@
 class PredictionsController < ApplicationController
 
-  before_action :set_prediction, only: :show
+  before_action :set_prediction, only: [:show, :evaluate]
 
   def new
     @prediction = Prediction.new
@@ -25,6 +25,11 @@ class PredictionsController < ApplicationController
   end
 
   def show
+  end
+
+  def evaluate
+    PredictionEvaluator.new(@prediction).perform
+    redirect_to @prediction
   end
 
   private

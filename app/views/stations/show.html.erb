@@ -53,6 +53,10 @@
       </tr>
     </table>
 
+    <h2>Predictions</h2>
+
+    <%= render 'predictions/predictions', predictions: @station.predictions %>
+
     <%= link_to 'Predict', new_prediction_path(station_id: @station), class: 'btn btn-default' %>
     <%= link_to 'Back', root_path, class: 'btn btn-default' %>
 

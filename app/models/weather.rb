@@ -21,6 +21,6 @@
 
 class Weather < ApplicationRecord
 
-  scope :closest, -> (station_status, offset = 0) { order("ABS(EXTRACT( EPOCH FROM created_at - '#{station_status.last_update_at}' - interval '#{offset} seconds'))") }
+  scope :closest_from_station_status, -> (station_status, offset = 0) { order("ABS(EXTRACT( EPOCH FROM created_at - '#{station_status.last_update_at}' - interval '#{offset} seconds'))") }
 
 end

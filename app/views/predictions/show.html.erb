@@ -9,7 +9,7 @@
     <table class="table table-hover">
       <tr>
         <td>Station</td>
-        <td><%= @prediction.station.name %></td>
+        <td><%= link_to @prediction.station.name, station_path(@prediction.station) %></td>
       </tr>
       <tr>
         <td>Creation time</td>
@@ -26,6 +26,26 @@
       <tr>
         <td>Estimated available stands</td>
         <td><%= @prediction.available_stands %></td>
+      </tr>
+    </table>
+
+    <h2>Evaluation</h2>
+
+    <table class="table table-hover">
+      <tr>
+        <td>Evaluated</td>
+        <td>
+          <%= @prediction.evaluated? %>
+          <%= link_to 'Evaluate', evaluate_prediction_path(@prediction), method: :patch, class: 'btn btn-success' if @prediction.evaluable? %>
+        </td>
+      </tr>
+      <tr>
+        <td>Bikes deviation</td>
+        <td><%= @prediction.bikes_deviation %></td>
+      </tr>
+      <tr>
+        <td>Stands deviation</td>
+        <td><%= @prediction.stands_deviation %></td>
       </tr>
     </table>
 

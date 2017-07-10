@@ -27,6 +27,10 @@ class StationStatus < ApplicationRecord
   scope :last_24h, -> { where(StationStatus.arel_table[:last_update_at].gt(Time.now - 1.day)) }
   scope :fresh, -> { order(last_update_at: :desc) }
 
+  scope :matching_prediction, -> (prediction, acceptable_offset) {
+    where("ABS(EXTRACT( EPOCH FROM last_update_at - '#{prediction.valid_at}')) < #{acceptable_offset}")
+    .order("ABS(EXTRACT( EPOCH FROM last_update_at - '#{prediction.valid_at}'))") }
+
   scope :seven_days_before, -> (other) { where(StationStatus.arel_table[:station_id].eq(other.station_id))
                                       .where(StationStatus.arel_table[:last_update_at].gt(other.last_update_at - 1.week - 5.minutes))
                                       .where(StationStatus.arel_table[:last_update_at].lt(other.last_update_at - 1.week + 5.minutes)) }

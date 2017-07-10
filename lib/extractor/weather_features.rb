@@ -91,18 +91,18 @@ class Extractor::WeatherFeatures
   end
 
   def closest_weather
-    @closest_weather ||= Weather.closest(@station_status).first
+    @closest_weather ||= Weather.closest_from_station_status(@station_status).first
   end
 
   def one_hour_before_closest_weather
-    @one_hour_before_closest_weather ||= Weather.closest(@station_status, -1.hour).first
+    @one_hour_before_closest_weather ||= Weather.closest_from_station_status(@station_status, -1.hour).first
   end
 
   def five_hours_before_closest_weather
-    @five_hours_before_closest_weather ||= Weather.closest(@station_status, -5.hours).first
+    @five_hours_before_closest_weather ||= Weather.closest_from_station_status(@station_status, -5.hours).first
   end
 
   def one_day_before_closest_weather
-    @one_day_before_closest_weather ||= Weather.closest(@station_status, -1.day).first
+    @one_day_before_closest_weather ||= Weather.closest_from_station_status(@station_status, -1.day).first
   end
 end

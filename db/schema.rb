@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170503205121) do
+ActiveRecord::Schema.define(version: 20170710195943) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,10 +44,12 @@ ActiveRecord::Schema.define(version: 20170503205121) do
     t.decimal  "available_bikes"
     t.decimal  "available_stands"
     t.string   "predictor"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
-    t.datetime "valid_at",         null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.datetime "valid_at",             null: false
     t.integer  "forecast_id"
+    t.integer  "evaluating_status_id"
+    t.index ["evaluating_status_id"], name: "index_predictions_on_evaluating_status_id", using: :btree
     t.index ["forecast_id"], name: "index_predictions_on_forecast_id", using: :btree
     t.index ["station_id"], name: "index_predictions_on_station_id", using: :btree
   end
