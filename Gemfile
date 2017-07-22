@@ -21,7 +21,6 @@ gem "twitter-bootstrap-rails"
 gem 'jbuilder', '~> 2.5'
 
 gem 'figaro'
-gem 'annotate'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-datetimepicker'
@@ -30,11 +29,12 @@ end
 
 group :development, :test do
   gem 'byebug'
-  gem 'rspec-rails', '~> 3.5'
+  gem 'rspec-rails', '~> 3.6'
   gem 'factory_girl_rails'
 end
 
 group :development do
+  gem 'annotate'
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '~> 3.1.5'
 
