@@ -18,10 +18,10 @@
     <tr>
       <td><%= link_to prediction.station.name, station_path(prediction.station) %></td>
       <td><%= prediction.valid_at %></td>
-      <td><%= prediction.available_bikes %></td>
-      <td><%= prediction.available_stands %></td>
-      <td><%= prediction.bikes_deviation %></td>
-      <td><%= prediction.stands_deviation %></td>
+      <td><%= prediction.available_bikes.round(1) %></td>
+      <td><%= prediction.available_stands.round(1) %></td>
+      <td><%= prediction.bikes_deviation&.round(1) %></td>
+      <td><%= prediction.stands_deviation&.round(1) %></td>
       <td><%= link_to 'Show', prediction_path(prediction) %></td>
       <td><%= link_to 'Evaluate', evaluate_prediction_path(prediction), method: :patch if prediction.evaluable? %></td>
     </tr>

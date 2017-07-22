@@ -21,11 +21,11 @@
       </tr>
       <tr>
         <td>Estimated available bikes</td>
-        <td><%= @prediction.available_bikes %></td>
+        <td><%= @prediction.available_bikes.round(1) %></td>
       </tr>
       <tr>
         <td>Estimated available stands</td>
-        <td><%= @prediction.available_stands %></td>
+        <td><%= @prediction.available_stands.round(1) %></td>
       </tr>
     </table>
 
@@ -41,11 +41,11 @@
       </tr>
       <tr>
         <td>Bikes deviation</td>
-        <td><%= @prediction.bikes_deviation %></td>
+        <td><%= @prediction.bikes_deviation&.round(1) %></td>
       </tr>
       <tr>
         <td>Stands deviation</td>
-        <td><%= @prediction.stands_deviation %></td>
+        <td><%= @prediction.stands_deviation&.round(1) %></td>
       </tr>
     </table>
 
