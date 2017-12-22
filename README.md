@@ -8,6 +8,10 @@ Fetching data such as velib usage and weather to be able to predict velib availa
 [![Code Climate](https://codeclimate.com/github/sallesma/cycling-pizza/badges/gpa.svg)](https://codeclimate.com/github/sallesma/cycling-pizza)
 [![Dependency Status](https://gemnasium.com/badges/github.com/sallesma/cycling-pizza.svg)](https://gemnasium.com/github.com/sallesma/cycling-pizza)
 
+## Warning
+
+2017-12-22 : Since JCDecaux lost the deal on Velib, their API is no longer maintained, so this project is not usable anymore (until someone makes the change to call the new API)
+
 ## Development
 
 You may use Vagrant or the app directly
